@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if let text = entryTextField.text {
+            updateBarcodeImage(text: text, type: self.selectedIndex)
+        }
     }
     @IBAction func selectBarcodeType(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -37,12 +40,20 @@ class ViewController: UIViewController {
         default:
             self.selectedIndex = .code128
         }
+        if let text = entryTextField.text {
+            updateBarcodeImage(text: text, type: self.selectedIndex)
+        }
     }
     
     @IBAction func createBarcode(_ sender: Any) {
-        imageView.image = UIImage(barcode: entryTextField.text!, type: self.selectedIndex.rawValue)
+        if let text = entryTextField.text {
+            updateBarcodeImage(text: text, type: self.selectedIndex)
+        }
     }
     
+    func updateBarcodeImage(text: String, type: Descriptor) {
+        imageView.image = UIImage(barcode: text, type: type.rawValue)
+    }
 }
 
 extension UIImage {

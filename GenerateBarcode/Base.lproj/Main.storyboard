@@ -32,13 +32,13 @@
                                 </connections>
                             </segmentedControl>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aCE-gt-eIF">
-                                <rect key="frame" x="20" y="59" width="335" height="64"/>
+                                <rect key="frame" x="20" y="59" width="335" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="qPO-LF-LSZ"/>
+                                    <constraint firstAttribute="height" constant="128" id="qPO-LF-LSZ"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234567890" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uqu-ga-QWH">
-                                <rect key="frame" x="20" y="131" width="335" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234567890" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uqu-ga-QWH">
+                                <rect key="frame" x="20" y="201" width="335" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="lGG-63-aEg"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7F-EQ-uyX">
-                                <rect key="frame" x="20" y="185" width="335" height="30"/>
+                                <rect key="frame" x="20" y="255" width="335" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Tpz-K4-rJ1"/>
                                 </constraints>
@@ -70,7 +70,7 @@
                             <constraint firstItem="aCE-gt-eIF" firstAttribute="top" secondItem="gpQ-yx-jqz" secondAttribute="bottom" constant="8" id="gUd-Vg-DFn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uqu-ga-QWH" secondAttribute="trailing" constant="20" id="sdv-7G-NGS"/>
                             <constraint firstItem="gpQ-yx-jqz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wdY-zx-XkI"/>
-                            <constraint firstItem="uqu-ga-QWH" firstAttribute="top" secondItem="aCE-gt-eIF" secondAttribute="bottom" constant="8" id="xbG-Yw-2hc"/>
+                            <constraint firstItem="uqu-ga-QWH" firstAttribute="top" secondItem="aCE-gt-eIF" secondAttribute="bottom" constant="14" id="xbG-Yw-2hc"/>
                         </constraints>
                     </view>
                     <connections>
