@@ -54,6 +54,22 @@ class ViewController: UIViewController {
     func updateBarcodeImage(text: String, type: Descriptor) {
         imageView.image = UIImage(barcode: text, type: type.rawValue)
     }
+    
+    
+
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "showBarcode" {
+            let controller: DetailViewController = segue.destination as! DetailViewController
+            controller.image = imageView.image
+        }
+    }
+
+
 }
 
 extension UIImage {

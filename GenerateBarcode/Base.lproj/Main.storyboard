@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PRy-Q8-GaP">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gpQ-yx-jqz">
-                                <rect key="frame" x="20" y="20" width="335" height="32"/>
+                                <rect key="frame" x="20" y="64" width="335" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="3FD-eC-YRg"/>
                                 </constraints>
@@ -31,14 +31,18 @@
                                     <action selector="selectBarcodeType:" destination="BYZ-38-t0r" eventType="valueChanged" id="rOc-xX-3ZH"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aCE-gt-eIF">
-                                <rect key="frame" x="20" y="59" width="335" height="128"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aCE-gt-eIF">
+                                <rect key="frame" x="20" y="103" width="335" height="128"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="qPO-LF-LSZ"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="50W-Cu-Ob4" appends="YES" id="w3x-VX-Yf2"/>
+                                </connections>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234567890" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uqu-ga-QWH">
-                                <rect key="frame" x="20" y="201" width="335" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234567890" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uqu-ga-QWH">
+                                <rect key="frame" x="20" y="245" width="335" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="lGG-63-aEg"/>
                                 </constraints>
@@ -46,7 +50,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7F-EQ-uyX">
-                                <rect key="frame" x="20" y="255" width="335" height="30"/>
+                                <rect key="frame" x="20" y="299" width="335" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Tpz-K4-rJ1"/>
                                 </constraints>
@@ -73,12 +77,68 @@
                             <constraint firstItem="uqu-ga-QWH" firstAttribute="top" secondItem="aCE-gt-eIF" secondAttribute="bottom" constant="14" id="xbG-Yw-2hc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gT4-fJ-Wl9"/>
                     <connections>
                         <outlet property="entryTextField" destination="uqu-ga-QWH" id="sgn-J0-Pdi"/>
                         <outlet property="imageView" destination="aCE-gt-eIF" id="ZUA-G5-8rl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="50W-Cu-Ob4">
+                    <connections>
+                        <segue destination="gEW-5X-Ng9" kind="show" identifier="showBarcode" id="B3R-F0-NDD"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="957.60000000000002" y="81.409295352323838"/>
+        </scene>
+        <!--Barcode-->
+        <scene sceneID="qNc-VQ-8Po">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="gEW-5X-Ng9" customClass="DetailViewController" customModule="GenerateBarcode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ymy-3c-IDf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xgz-ao-CMi">
+                                <rect key="frame" x="16" y="269.5" width="343" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="PVl-NE-m8M"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qaY-MC-cfd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xgz-ao-CMi" firstAttribute="leading" secondItem="qaY-MC-cfd" secondAttribute="leading" constant="16" id="41I-jW-hJj"/>
+                            <constraint firstItem="qaY-MC-cfd" firstAttribute="trailing" secondItem="Xgz-ao-CMi" secondAttribute="trailing" constant="16" id="9uk-C0-CW1"/>
+                            <constraint firstItem="Xgz-ao-CMi" firstAttribute="centerY" secondItem="ymy-3c-IDf" secondAttribute="centerY" id="ZFe-05-L19"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Barcode" id="LXM-mc-bPC"/>
+                    <connections>
+                        <outlet property="imageView" destination="Xgz-ao-CMi" id="VDe-3d-vCL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rFQ-gn-bdu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639.2" y="98.50074962518741"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="j0M-eh-nt5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PRy-Q8-GaP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ExP-I6-QVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hZe-DB-CCp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XJ4-m7-70M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.399999999999999" y="81.409295352323838"/>
         </scene>
