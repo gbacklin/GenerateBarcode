@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     }
     
     func updateBarcodeImage(text: String, type: Descriptor) {
-        imageView.image = UIImage(barcode: text, type: type.rawValue)
+        imageView.image = UIImage(barcode: text, type: type.rawValue, size: imageView.bounds.size)
     }
     
     
@@ -73,17 +73,29 @@ class ViewController: UIViewController {
 }
 
 extension UIImage {
-    convenience init(barcode: String, type: String) {
+    convenience init(barcode: String, type: String, size: CGSize) {
         let data = barcode.data(using: .ascii)
         
         if let filter = CIFilter(name: type) {
             //filter.setDefaults()
             filter.setValue(data, forKey: "inputMessage")
             if let ciImage = filter.outputImage {
-                self.init(ciImage: ciImage)
+                var transform: CGAffineTransform?
+                
+                let imageSize = ciImage.extent.size
+                if imageSize.width == imageSize.height {
+                    transform = CGAffineTransform(scaleX: size.height / imageSize.width,
+                                                           y: size.height / imageSize.height)
+                } else {
+                    transform = CGAffineTransform(scaleX: size.width / imageSize.width,
+                                                           y: size.height / imageSize.height)
+                }
+                let scaledImage = ciImage.transformed(by: transform!)
+                self.init(ciImage: scaledImage)
                 return
             }
         }
         self.init()
     }
+    
 }
